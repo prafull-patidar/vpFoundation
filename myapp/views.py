@@ -36,17 +36,6 @@ import os
 # from twilio.rest import Client
 
 def home(request):
-    # account_sid =  'AC2eeacef22c6c35a87c546f8bf249bb95'                  #os.environ['TWILIO_ACCOUNT_SID']
-    # auth_token =  'b60071308aa511902f1e217e8e16733d'                      #os.environ['TWILIO_AUTH_TOKEN']
-    # client = Client(account_sid, auth_token)
-
-    # message = client.messages.create(
-    #                           body='Welcome to Vedprakash Foundation',
-    #                           from_='+16788537923',
-    #                           to='+919098673253'
-    #                       )
-
-    # print(message.sid)
     return render(request,"home.html")
 
 def joinform(request):
