@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#mail{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+#logo{
+    width: 100%;
+    text-align: center;
+}
+
+#logo img{
+    margin: auto;
+    width: 150px;
+    height: 150px;
+}
+
+#heading{
+    text-align: center;
+    margin-top: 20px;
+}
+
+#heading h4{
+    color: #f89d35;
+}
+
+#otp-heading{
+    width: 100%;
+    text-align: center;
+    margin-top: 70px;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+#otp-box{
+    width: 100%;
+    min-height: 200px;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #212529;
+    color: silver;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#otp-box h1{
+    font-weight: bolder;
+    letter-spacing: 16px;
+    color: silver;
+}
+
+
+@media screen and (max-width:473px) {
+    #heading h4{
+        padding: 10px;
+    }   
+    #otp-heading{
+        margin-top: 30px;
+    }
+
+    #otp-box{
+        width: 70%;
+    }
+
+    #otp-box h1{
+        font-weight: bolder;
+        letter-spacing: 10px;
+    }
+    
+}

@@ -1,0 +1,734 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo/l3.jpg' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+
+    <!-- fontawesome  -->
+    <script src="https://kit.fontawesome.com/bc079f53ef.js" crossorigin="anonymous"></script>
+
+    <!-- googel fonts  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}?v=1">
+
+    <title>VP Foundation</title>
+    <style>
+        /* class for phone numbers patter error */
+        .showError {
+            border: 1px solid red !important;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="wrapper">
+
+        <!-- main div of navs -->
+        <div id="main-navs">
+            <!-- first nav -->
+            <div id="top-nav">
+                <!-- left -->
+                <div id="left-content">
+                    <div class="contact-info">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 8989898989</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@vpfoundation.com</span>
+                    </div>
+                </div>
+                <!-- right -->
+                <div id="right-content">
+                    <div class="icons">
+                        <div><i class="fab fa-facebook-f"></i></div>
+                        <div><i class="fab fa-instagram"></i></div>
+                        <div><i class="fab fa-pinterest"></i></div>
+                        <div><i class="fab fa-google"></i></div>
+                        <div><i class="fab fa-linkedin"></i></div>
+                    </div>
+                    <div><a href="#right-section" class="join-now btnAnimate">Join Now</a></div>
+                </div>
+            </div>
+
+            <!-- bottom nav -->
+            <div id="bottom-nav">
+                <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'images/logo/l3.jpg' %}" class="logo1" />
+                        <img src="{% static 'images/logo/l4.jpg' %}" class="logo2" />
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto" style="font-size: 1rem;">
+                            <li class="nav-item active" id="nav-item-home">
+                                <a class="nav-link btnAnimate bottom-nav-links" id="nav-link-home"
+                                    href="{% url 'home' %}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active btnAnimate bottom-nav-links" id="nav-link-aboutus"
+                                    href="#aboutus">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active btnAnimate bottom-nav-links" id="nav-link-contactus"
+                                    href="#contact-us">Contact Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active btnAnimate bottom-nav-links" id="nav-link-support"
+                                    href="#footer">Support</a>
+                            </li>
+
+                        </ul>
+
+                        <!-- <div id="nav-dropdowns-section"> -->
+                            <!-- <ul class="nav">
+                                
+                            </ul> -->
+
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item">
+                                    <div class="btn-group">
+                                        <button class="btn btn-secondary btn-sm dropdown-help btnAnimate" type="button">
+                                            Lab Tests
+                                        </button>
+                                        <button type="button"
+                                            class="btn btn-sm btn-secondary dropdown-toggle btnAnimate dropdown-toggle-split"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item"
+                                                href="{% url 'needhelp' %}?type=OxygenCylinder">Oxygen Cylinder</a>
+                                            <a class="dropdown-item" href="{% url 'needhelp' %}?type=BloodPlasma">Blood
+                                                Plasma</a>
+                                            <a class="dropdown-item"
+                                                href="{% url 'needhelp' %}?type=HospitalBed">Hospital Beds</a>
+                                            <a class="dropdown-item"
+                                                href="{% url 'needhelp' %}?type=MedicalFacility">Medical Facilities</a>
+                                            <a class="dropdown-item" href="{% url 'needhelp' %}?type=FoodFacility">Food
+                                                Facility</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="{% url 'needhelp' %}?type=Other">Other</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <div class="btn-group">
+                                        <button class="btn btn-secondary btn-sm dropdown-help btnAnimate" type="button">
+                                            How can we help you?
+                                        </button>
+                                        <button type="button"
+                                            class="btn btn-sm btn-secondary dropdown-toggle btnAnimate dropdown-toggle-split"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item"
+                                                href="{% url 'needhelp' %}?type=OxygenCylinder">Oxygen Cylinder</a>
+                                            <a class="dropdown-item" href="{% url 'needhelp' %}?type=BloodPlasma">Blood
+                                                Plasma</a>
+                                            <a class="dropdown-item"
+                                                href="{% url 'needhelp' %}?type=HospitalBed">Hospital Beds</a>
+                                            <a class="dropdown-item"
+                                                href="{% url 'needhelp' %}?type=MedicalFacility">Medical Facilities</a>
+                                            <a class="dropdown-item" href="{% url 'needhelp' %}?type=FoodFacility">Food
+                                                Facility</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="{% url 'needhelp' %}?type=Other">Other</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        <!-- </div> -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- banner -->
+        <div id="banner" style="background-image: url('static/images/banner/bg1.jpg');">
+            <div id="banner-content">
+                <div>
+                    <h6>Be a Volunteer</h6>
+                </div>
+                <div>
+                    <h2>We Need Your Help</h2>
+                </div>
+            </div>
+        </div>
+
+        <!--  midlle content and form -->
+        <div id="midlle-content">
+            <div id="left-section">
+                <h4 class="main-heading">Help a child discover the joy of learning and join us in our efforts to put
+                    Every Child in School!
+                </h4>
+                <span class="content-list">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium ipsa
+                    suscipit quos labore
+                    optio consequuntur, ut unde nobis voluptatem? Nemo fuga dolorum ipsum assumenda obcaecati nihil quo
+                    debitis unde impedit?</span>
+                <h4 class="list-heading"><b>Volunteer benefits</b></h4>
+                <span class="list-sub-heading">As a volunteer you will get benefit from:</span>
+                <h6 class="content-list"><strong>Training </strong> <span> - get discounted rates on our unique training
+                        courses.</span></h6>
+                <h6 class="content-list"><strong>Events </strong> <span> - receive discounted tickets and invitations to
+                        member-only events.</span></h6>
+                <h6 class="content-list"><strong>Community </strong> <span> - share knowledge and best practice with
+                        peers.</span></h6>
+                <h6 class="content-list"><strong>Networking </strong> <span> - talk to the right people when you need
+                        to.</span></h6>
+                <h6 class="content-list"><strong>Expertise </strong> <span> - access the Bond groups and the best tools
+                        and resources.</span></h6>
+
+            </div>
+
+            <div id="right-section">
+                <h6 style="color: #f89d35;">Join us</h6>
+                <h1 style="font-size: 2rem;font-weight: bolder;">Become A Volunteer</h1>
+
+                <div id="loader" style="width: 100%;height:100%;">
+                    <img width="100px" height="100px" src="{% static 'images/loader/loader1.gif' %}">
+                </div>
+
+                <div class="join-form" id="join-form">
+                    <form action="{% url 'joinForm' %}" method="post" id="joinusform">{% csrf_token %}
+                        <div class="form-group">
+                            <input required type="text" class="form-control" id="name" name="name"
+                                placeholder="Full Name">
+                        </div>
+                        <div class="form-group">
+                            <input required type="email" class="form-control" id="email" name="email"
+                                placeholder="Email Address">
+                        </div>
+                        <div class="form-group">
+                            <input required type="tel" class="form-control" id="phone" name="phone"
+                                placeholder="Phone Number" onkeyup="phoneValidator(id)">
+                            <small id="phoneValidateErrorText" style="color: red;font-size: 0.7rem;">
+                                Phone number must be valid and contain only 10 numbers.
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <input required type="tel" class="form-control" id="wpphone" name="wpphone"
+                                placeholder="Whatsapp Number" onkeyup="phoneValidator(id)">
+                            <small id="wpPhoneValidateErrorText" style="color: red;font-size: 0.7rem;">
+                                WhatsApp number must be valid and contain only 10 numbers.
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <input required type="text" class="form-control" id="address" name="address"
+                                placeholder="Address">
+                        </div>
+                        <div class="form-group">
+                            <input required type="text" class="form-control" id="occupation" name="occupation"
+                                placeholder="Occupation">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" id="message" cols="30" rows="6" class="form-control"
+                                placeholder="Why do you want to join us? (Optional)"
+                                style="margin-top: 0px; margin-bottom: 0px; height: 143px;"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn form-button btnAnimate" style="border: none;
+                        border-radius: 0px;">JOIN US</button>
+                    </form>
+                </div>
+
+                <div id="otp-div" class="hideOtp">
+
+                    <div class="form-group">
+                        <br><span>An otp is sent to your email.</span><br>
+                        <small style="margin-bottom: 20px;color:red"><b>Please Do Not Refresh The Page.</b></small><br>
+
+                        <form method="post" id="otp-form">{% csrf_token %}
+                            <input style="margin-top: 20px;" type="number" class="form-control" id="otp"
+                                onkeyup="getOTPVal()" name="otp" placeholder="Enter OTP"><br>
+                            <small class="help-text-hide" id="otpErrorHelp">Otp is invalid!</small><br><br>
+                            <button type="submit" class="btn form-button btnAnimate" id="otpButton"
+                                onclick=(submitOtp())>Submit</button>
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <div id="internal-error">
+                    <h5 style="margin-top: 50px;opacity: 0.9;">OOPS SOMETHING WENT WRONG!</h5>
+                    <br>
+                    <span style="margin-top: 20px;opacity: 0.7;">There is some Internal Server Error! Please try again
+                        later.</span>
+                </div>
+
+                <div id="already-registered-error">
+                    <h5 style="margin-top: 50px;opacity: 0.9;">You Are Already A Volunteer of Ved Prakash Foundation!
+                    </h5>
+                    <br>
+                    <span style="margin-top: 20px;opacity: 0.7;">You can join us on our social media platforms,
+                        Thankyou!</span>
+                </div>
+
+                <div id="thankyou" style="margin-top: 20px;">
+                    <h5><b style="color: #f89d35;"></b>Thankyou</b> for joining with us.</h5><br>
+                    <span>We will reach you soon.</span>
+                    <a href="#wrapper" id="exploreMore" onclick="exploreMore()">Explore more..</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- about us -->
+        <div id="aboutus">
+            <h2 style="text-align: center;">About Us</h2>
+            <div id="our-mission">
+                <h4>Our Mission</h4>
+                <p>Consectetur adipiscing elit, sued do eiusmod tempor ididunt udfgt labore et dolore magna aliqua. Quis
+                    ipsum suspendisces gravida. Risus commodo viverra sebfd dho eiusmod tempor maecenas accumsan lacus.
+                    Risus commodo viverra sebfd dho eiusmod tempor maecenas accumsan lacus.</p>
+                <p>Risus commodo viverra sebfd dho eiusmod tempor maecenas accumsan lacus. Risus commodo viverra sebfd
+                    dho eiusmod tempor maecenas accumsan.</p>
+            </div>
+            <div id="our-vision">
+                <h4>Our Vision</h4>
+                <p>Consectetur adipiscing elit, sued do eiusmod tempor ididunt udfgt labore et dolore magna aliqua. Quis
+                    ipsum suspendisces gravida. Risus commodo viverra sebfd dho eiusmod tempor maecenas accumsan lacus.
+                    Risus commodo viverra sebfd dho eiusmod tempor maecenas accumsan lacus.</p>
+                <p>Risus commodo viverra sebfd dho eiusmod tempor maecenas accumsan lacus. Risus commodo viverra sebfd
+                    dho eiusmod tempor maecenas accumsan.</p>
+            </div>
+        </div>
+
+
+        <!-- middle banner -->
+        <div id="banner" style="background-position-x: 37%;background-image: url(static/images/banner/bg1.jpg);
+        background-size: auto 100%;">
+            <div id="banner-content">
+                <div>
+                    <h6>Be a Volunteer</h6>
+                </div>
+                <div>
+                    <h2>We Need Your Help</h2>
+                </div>
+                <div style="margin-top: 30px;">
+                    <a href="#right-section" class="join-now btnAnimate">Join Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- contatc us  -->
+        <div id="contact-us">
+            <h4 style="text-align: center;">Contact Us</h4>
+            <!-- address map -->
+            <div id="addMap">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3703.7895804124487!2d75.61175881744384!3d21.827059500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd885da0e62a71f%3A0x4ca6959b64423075!2sRadha%20Vallabh%20Market%20Office!5e0!3m2!1sen!2sin!4v1620900231749!5m2!1sen!2sin"
+                    width="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div id="contact-form-div">
+                <!-- query/ suggestion form -->
+                <div id="contact-div-heading">
+                    <h5 style="text-align: left;">Get in Touch</h5>
+                </div>
+                <div id="contact-form">
+                    <form method="post" id="cntform">{% csrf_token %}
+                        <div class="form-group">
+                            <textarea name="cntsuggestion" id="cntsuggestion" cols="30" rows="6" class="form-control"
+                                placeholder="Enter Message"
+                                style="margin-top: 0px; margin-bottom: 0px; height: 143px;" required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" name="cntname" class="form-control" id="cntname" placeholder="Name" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="email" name="cntemail" class="form-control" id="cntemail" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="cntsubj" id="cntsubj" placeholder="Enter Subject" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btnAnimate">SEND</button>
+                    </form>
+                </div>
+                <div id="success-contact-form" style="margin: 30px auto;text-align: center;">
+                    <h5 style="color: #f89d35;">Your Message Sent Successfully.</h5><br>
+                    <span style="font-size: 0.7rem;opacity: 0.7;">We will contact you soon!</span>
+                </div>
+
+                <!-- contact details -->
+                <div id="contact-details">
+                    <div id="office-add" class="contact-details-content">
+                        <div class="cntIcon"><i class="far fa-building"></i></div>
+                        <div class="cntDetail"><strong style="opacity: 1;">23/4, Betul Bazaar, Betul,
+                                M.P.(452001)</strong><br><small style="opacity: 0.8;">Ved Prakash Foundation,AB
+                                Road</small></div>
+                    </div>
+                    <div id="phone-add" class="contact-details-content">
+                        <div class="cntIcon"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="cntDetail"><strong style="opacity: 1;">+91 9009921881</strong><br><small
+                                style="opacity: 0.8;">24/7 support</small></div>
+                    </div>
+                    <div id="email-add" class="contact-details-content">
+                        <div class="cntIcon"><i class="fas fa-envelope-square"></i></div>
+                        <div class="cntDetail"><strong
+                                style="opacity: 1;">vedprakashfoundation@vp.com</strong><br><small
+                                style="opacity: 0.8;">Send your query/suggestion anytime!</small></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div id="footer">
+            <div id="footer-content">
+                <div id="footer-content-1">
+                    <h4 style="color: white;font-weight: bolder;font-size: 1.3rem">Organization</h4><br>
+                    <span>23/9, Murari Complex, AB Road, Indore (452001)</span><br>
+                    <span><i class="fas fa-phone-alt">&nbsp;&nbsp;</i>+91 8989898989</span><br>
+                    <span><i class="fas fa-envelope">&nbsp;&nbsp;</i>support@vpfoundation.com</span>
+                    <div class="footer-icons">
+                        <div><i class="fab fa-facebook-f "></i></div>
+                        <div><i class="fab fa-instagram"></i></div>
+                        <div><i class="fab fa-pinterest"></i></div>
+                    </div>
+                </div>
+
+                <div id="footer-content-2">
+                    <h4 style="color: white;font-weight: bolder;font-size: 1.3rem;">Quick Links</h4><br>
+                    <div><a href="#aboutus">About</a></div>
+                    <div><a href="#" title="We are working on it, link will available after some time.">Support</a>
+                    </div>
+                    <div><a href="#" title="We are working on it, link will available after some time.">Team</a></div>
+                    <div><a href="#contact-us">Contact</a></div>
+                </div>
+
+                <div id="footer-content-3">
+                    <h4 style="color: white;font-weight: bolder;font-size: 1.3rem;">Subscribe</h4><br>
+                    <form action="#" class="sub-form">
+                        <input type="text" class="form-control mb-4 subscribe-input" placeholder="Subscribe Now ...">
+                        <a href="#" class="btn btn-main btn-small rounded subscribe btnAnimate"
+                            style="border: none;border-radius: 0px!important;">subscribe</a>
+                    </form>
+                </div>
+
+                <div id="footer-content-4">
+                    <h4 style="color: white;font-weight: bolder;font-size: 1.3rem;">Gallery</h4><br>
+                    <div id="footer-gallery">
+                        <div class="footer-gallery-img">
+                            <img src="{% static 'images/image_gallery/ig1.jpg' %}" />
+                        </div>
+                        <div class="footer-gallery-img">
+                            <img src="{% static 'images/image_gallery/ig2.jpg' %}" />
+                        </div>
+                        <div class="footer-gallery-img">
+                            <img src="{% static 'images/image_gallery/ig3.jpg' %}" />
+                        </div>
+                        <div class="footer-gallery-img">
+                            <img src="{% static 'images/image_gallery/ig4.jpg' %}" />
+                        </div>
+                        <div class="footer-gallery-img">
+                            <img src="{% static 'images/image_gallery/ig5.jpg' %}" />
+                        </div>
+                        <div class="footer-gallery-img">
+                            <img src="{% static 'images/image_gallery/ig6.jpg' %}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <span>&#169;&nbsp;Copyright Reserved to Ved Prakash Foundation, 2021</span>
+            </div>
+        </div>
+
+        <div id="goToTop">
+            <i class="fas fa-level-up-alt btnAnimate" onclick="takeMeTop()"></i>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'js/home.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
+</body>
+
+<!-- custom js -->
+<script>
+
+    var otp;
+    var isDisableOtpButton = true;
+
+    var otpbtn = document.querySelector('#otpButton');
+    otpbtn.disabled = true;
+
+    $('#loader').hide();
+    $('#already-registered-error').hide();
+    $('#thankyou').hide();
+    $('#internal-error').hide();
+
+    // toogle visibility of level up icon
+    var levelUp = document.getElementById("goToTop");
+
+    // when size of window is less than 992 remove btnAnimate class on load
+    window.addEventListener('load', () => {
+        if (window.outerWidth < 992) {
+            $('#nav-link-home').removeClass('btnAnimate')
+            $('#nav-link-aboutus').removeClass('btnAnimate')
+            $('#nav-link-contactus').removeClass('btnAnimate')
+            $('#nav-link-support').removeClass('btnAnimate')
+        }
+
+        // when size of window is less than 992 remove btnAnimate class on resize window toggle class
+
+        window.addEventListener('resize', (e) => {
+            $('#nav-link-home').removeClass('btnAnimate')
+
+            if (e.target.outerWidth < 992) {
+                $('#nav-link-home').removeClass('btnAnimate')
+                $('#nav-link-aboutus').removeClass('btnAnimate')
+                $('#nav-link-contactus').removeClass('btnAnimate')
+                $('#nav-link-support').removeClass('btnAnimate')
+            } else {
+                $('#nav-link-home').addClass('btnAnimate')
+                $('#nav-link-aboutus').addClass('btnAnimate')
+                $('#nav-link-contactus').addClass('btnAnimate')
+                $('#nav-link-support').addClass('btnAnimate')
+            }
+
+        })
+    })
+
+
+    // get height of screen
+    window.onscroll = () => {
+
+        if (window.pageYOffset > 554) {
+            levelUp.classList.add('displayMe')
+            levelUp.classList.remove('DoNotdisplayMe')
+        } else {
+            levelUp.classList.add('DoNotdisplayMe')
+            levelUp.classList.remove('displayMe')
+        }
+    }
+
+    // teke to top after click on level up icon
+
+    function takeMeTop() {
+        window.scrollTo(0, 0);
+    }
+
+    // otp facilty
+    function getOTP() {
+        var form = document.getElementById("join-form");
+        form.classList.add("HideForm");
+        otpId = document.getElementById('otp-div');
+        otpId.classList.add('showOtpInput')
+        otpId.classList.remove('hideOtp')
+    }
+
+
+    $('#joinusform').submit(function (event) {
+        formdata = {
+            'name': $('input[name=name]').val(),
+            'email': $('input[name=email]').val(),
+            'phone': $('input[name=phone]').val(),
+            'wpphone': $('input[name=wpphone]').val(),
+            'address': $('input[name=address]').val(),
+            'occupation': $('input[name=occupation]').val(),
+            'message': $('textarea[name=message]').val(),
+            'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: '{% url "joinForm" %}',
+            data: formdata,
+            encode: true,
+            beforeSend: function () {
+                $("#loader").show();
+                $('#join-form').hide();
+                window.location.hash = 'right-section';
+            },
+            success: function (data) {
+                window.location.hash = document.location.hash;
+                if (data.Error) {
+                    $('#already-registered-error').show();
+                    $('#loader').hide();
+                    $('#thankyou').hide();
+                    $('#internal-error').hide();
+                    $('#joinusform').hide()
+                    $('#join-form').hide()
+                    $('#otp-div').hide();
+
+                }
+                else if (data.myOtp === undefined) {
+                    $('#loader').hide();
+                    $('#thankyou').hide();
+                    $('#internal-error').show();
+                    $('#joinusform').hide()
+                    $('#join-form').hide()
+                    $('#otp-div').hide();
+                } else {
+                    otp = data.myOtp * 20 / 50;
+                    getOTP();
+                }
+            },
+            complete: function (data) {
+                $("#loader").hide();
+            }
+        })
+        event.preventDefault();
+    })
+
+    // get Otp value from input
+
+    function getOTPVal() {
+        otpInputVal = $('#otp').val();
+        if (Number(otpInputVal) === Number(otp)) {
+            document.getElementById('otp').classList.remove('errorOtp')
+            document.getElementById('otpErrorHelp').classList.add('help-text-hide')
+            document.getElementById('otpErrorHelp').classList.remove('help-text-show')
+            var otpbtn = document.querySelector('#otpButton');
+            otpbtn.disabled = false;
+        } else {
+            document.getElementById('otp').classList.add('errorOtp')
+            document.getElementById('otpErrorHelp').classList.remove('help-text-hide')
+            document.getElementById('otpErrorHelp').classList.add('help-text-show')
+            var otpbtn = document.querySelector('#otpButton');
+            otpbtn.disabled = true;
+        }
+    }
+
+    // submit otp
+
+    function submitOtp() {
+        otp_val = $('#otp').val();
+        $('#otp-form').submit(function (event) {
+            event.preventDefault();
+            formData = {
+                'otp': $('input[name=otp]').val(),
+                'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+            }
+            $.ajax({
+                type: "POST",
+                url: '{% url "validateUser" %}',
+                data: formData,
+                encode: true
+            }).done(function (data) {
+                $('#otp-div').hide();
+                $('#thankyou').show();
+            });
+
+        });
+        // event.preventDefault();
+    }
+
+    // explore more
+
+    function exploreMore() {
+        $("#loader").hide();
+        $('#join-form').show();
+        $('#otp-div').hide();
+        $('#thankyou').hide();
+        window.scrollTo(0, 0)
+        window.location.reload();
+    }
+
+
+    // validate phone numbers
+
+    function phoneValidator(id) {
+        num = document.getElementById(id).value;
+        phoneRegex = /^([6-9]{1})([0-9]{9})$/
+        if (num.match(phoneRegex) != null) {
+            removeErrorClass(id);
+        }
+        else {
+            addErrorClasse(id);
+        }
+    }
+
+    // function which adds /remove dynamic classes based on phone number validation
+    $('#phoneValidateErrorText').hide();
+    $('#wpPhoneValidateErrorText').hide();
+
+    function addErrorClasse(id) {
+        $('#' + id).addClass('showError');
+        if (id === 'phone') {
+            $('#phoneValidateErrorText').show();
+        }
+        if (id === 'wpphone') {
+            $('#wpPhoneValidateErrorText').show();
+        }
+    }
+
+    function removeErrorClass(id) {
+        $('#' + id).removeClass('showError');
+        if (id === 'phone') {
+            $('#phoneValidateErrorText').hide();
+        }
+        if (id === 'wpphone') {
+            $('#wpPhoneValidateErrorText').hide();
+        }
+    }
+
+    // contact form
+    // contact form submit 
+$('#success-contact-form').hide();
+
+$('#cntform').submit(function(e){
+    e.preventDefault();
+    formData = {
+        'suggestion':$('textarea[name=cntsuggestion]').val(),
+        'name':$('input[name=cntname]').val(),
+        'email':$('input[name=cntemail]').val(),
+        'subject':$('input[name=cntsubj]').val(),
+        'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+
+    }
+    $.ajax({
+        type : 'POST',
+        url : '{% url "contact" %}',
+        data : formData,
+        encode:true,
+        success:function(data){
+            if(data.form_status){
+                $('#contact-form').hide();
+                $('#success-contact-form').show();
+                window.location.hash = "contact-form-div";
+            }
+        }
+    })
+
+})
+
+</script>
+
+</html>

@@ -1,0 +1,74 @@
+{% load static inlinecss icons%}
+
+{% inlinecss "css/mail.css" %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <link rel="stylesheet" href="{% static 'css/mail.css' %}"> -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/bc079f53ef.js" crossorigin="anonymous"></script>
+
+     
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <title>VP Foundation Mail</title>
+  </head>
+  <body>
+    
+    <div id="mail">
+
+        <div id="logo">
+            <img src="/static/images/logo/l2.jpg">
+        </div>
+
+        <div id="heading">
+            <h4>Great to connect with you, <strong style="text-transform: capitalize;">{{username}}</strong>!</h4>
+        </div>
+
+        <div id="otp-heading"><span style="margin: auto;">OTP</span><br>
+
+        <div id="otp-box" style="width: 100%;position: relative;text-align:center;display: flex;justify-content: center;align-items: center;">
+            <h1 style="color: silver;position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            color: silver;margin: auto;">{{otp}}</h1>
+        </div>
+
+        <!-- <div id="social-links" style="width: 100%;margin-top: 30px;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+              <span style="color: black;opacity: 0.8;margin-bottom: 0px;font-size: 0.6rem;">Join us on social media platforms...</span><br>
+              <div style="display: flex;float: left;">
+                <div style="margin: 3px auto;opacity: 0.7;"><a href="#"><img src="http://127.0.0.1:8000{% static 'images/icon-img/fb.png' %}" width="30px" height="30px"/></a></div>
+                <div style="margin: 3px auto ;margin-left: 20px;opacity: 0.7;"><a href="#"><img src="{% static 'images/icon-img/insta.png' %}" width="30px" height="30px"/></a></div>
+                <div style="margin: 3px auto;margin-left: 20px;opacity: 0.7;"><a href="#"><img src="{% static 'images/icon-img/twitter.png' %}" width="30px" height="30px"/></a></div>
+              </div>
+        </div> -->
+
+        <div id="supprot-link" style="text-align: center;margin-top: 40px;">
+            <small style="font-size: 0.6rem;opacity: 0.8;">If you have any query,Please feel free to contact us at</small>&nbsp;<br>
+            <a href="#" style="font-size: 0.6rem;">support@vpfoundation.org</a><br>
+            <small style="font-size: 0.6rem;opacity: 0.8;">Or you can call us on</small>&nbsp;<br>
+            <small style="font-size: 0.6rem;"><strong>+91 9009921881</strong></small><br>
+            <small><a href="#" style="text-decoration: underline;color: slateblue;font-size: 0.5rem;">visit our website</a></small>
+        </div>
+        
+        <div style="margin-top: 30px;background-color: #212529;color: silver;display: flex;text-align: center;justify-content: center;align-items: center;">
+            <small style="color: silver;text-align: center;font-size: 0.5rem;margin: auto;">&#169;&nbsp;All rights reserved to VedPrakash Foundation, 2021</small>
+        </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+  </body>
+</html>
+{% endinlinecss %}

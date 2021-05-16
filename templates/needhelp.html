@@ -1,0 +1,502 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo/l3.jpg' %}">
+
+    <link rel="stylesheet" href="{% static 'css/needhelp.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+
+    <!-- fontawesome  -->
+    <script src="https://kit.fontawesome.com/bc079f53ef.js" crossorigin="anonymous"></script>
+
+    <!-- googel fonts  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+    <title>VP Foundation HelpCare</title>
+    <style>
+        /* class for phone numbers patter error */
+        .showError {
+            border: 1px solid red !important;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="wrapper">
+
+        <!-- main div of navs -->
+        <div id="main-navs">
+            <!-- first nav -->
+            <div id="top-nav-help">
+                <!-- left -->
+                <div id="left-content">
+                    <div class="contact-info">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 8989898989</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@vpfoundation.com</span>
+                    </div>
+                </div>
+                <!-- right -->
+                <div id="right-content-section">
+                    <div class="icons">
+                        <div><i class="fab fa-facebook-f"></i></div>
+                        <div><i class="fab fa-instagram"></i></div>
+                        <div><i class="fab fa-pinterest"></i></div>
+                        <div><i class="fab fa-google"></i></div>
+                        <div><i class="fab fa-linkedin"></i></div>
+                    </div>
+                    <div><a href="{% url 'home' %}" class="vpFoundationBtn btnAnimate">Ved Prakash Foundation</a></div>
+                </div>
+            </div>
+
+            <!-- bottom nav -->
+            <div id="bottom-nav">
+                <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'images/logo/l3.jpg' %}" class="logo1" />
+                        <img src="{% static 'images/logo/l4.jpg' %}" class="logo2" />
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto" style="font-size: 1rem;">
+                            <li class="nav-item active" id="nav-item-home">
+                                <a class="nav-link btnAnimate bottom-nav-links" id="nav-link-home"
+                                    href="{% url 'home' %}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active btnAnimate bottom-nav-links" id="nav-link-aboutus"
+                                    href="#aboutus">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active btnAnimate bottom-nav-links" id="nav-link-contactus"
+                                    href="#contact-us">Contact Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active btnAnimate bottom-nav-links" id="nav-link-support"
+                                    href="#footer">Support</a>
+                            </li>
+
+                        </ul>
+
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item">
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary btn-sm dropdown-help btnAnimate" type="button">
+                                        How can we help you?
+                                    </button>
+                                    <button type="button"
+                                        class="btn btn-sm btn-secondary dropdown-toggle btnAnimate dropdown-toggle-split"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{% url 'needhelp' %}?type=OxygenCylinder">Oxygen
+                                            Cylinder</a>
+                                        <a class="dropdown-item" href="{% url 'needhelp' %}?type=BloodPlasma">Blood
+                                            Plasma</a>
+                                        <a class="dropdown-item" href="{% url 'needhelp' %}?type=HospitalBed">Hospital
+                                            Beds</a>
+                                        <a class="dropdown-item"
+                                            href="{% url 'needhelp' %}?type=MedicalFacility">Medical Facilities</a>
+                                        <a class="dropdown-item" href="{% url 'needhelp' %}?type=FoodFacility">Food
+                                            Facility</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{% url 'needhelp' %}?type=Other">Other</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- help form -->
+        <div id="help-form-div" style="width: 80%; margin: 70px auto;">
+            <form method="post" id="help-form">{% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number"
+                            onkeyup="phoneValidator(id)" required>
+                        <small id="phoneValidateErrorText" style="color: red;font-size: 0.7rem;">
+                            Phone number must be valid and contain only 10 numbers.
+                        </small>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="wpphone">whatsApp Number</label>
+                        <input type="tel" class="form-control" id="wpphone" name="wpphone"
+                            placeholder="whatsApp Mobile Number (optional)" onkeyup="phoneValidator(id)">
+                        <small id="wpPhoneValidateErrorText" style="color: red;font-size: 0.7rem;">
+                            WhatsApp number must be valid and contain only 10 numbers.
+                        </small>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label for="currentAdd">Current Address</label>
+                        <input type="text" class="form-control" id="currentAdd" name="currentAdd"
+                            placeholder="1234 Main St (present address)" required>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="permanentAdd">Permanent Address</label>
+                        <input type="text" class="form-control" id="permanentAdd" name="permanentAdd"
+                            placeholder="Apartment, studio, or floor (optional)">
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+                    </div>
+
+                    {% if help_type == "Other" %}
+                        <div class="form-group col-md-12">
+                            <label for="titleOfHelp">Title of Help</label>
+                            <input type="text" class="form-control" id="titleOfHelp" name="titleOfHelp" placeholder="Title Of Help" required>
+                        </div>
+                    {% endif %}
+
+                    <div class="form-group col-md-12">
+                        <label for="message">Description</label>
+                        <textarea name="message" id="message" cols="30" rows="6" class="form-control"
+                            placeholder="Description of your problem?, It will help us to reach to you as soon as possible (Optional)"
+                            style="margin-top: 0px; margin-bottom: 0px; height: 143px;"></textarea>
+                    </div>
+
+                </div>
+                <button type="submit" class="btn btn-primary btnAnimate" id="helpbtn">Submit</button>
+            </form>
+
+            <div id="resp_thank" style="margin: auto;text-align: center;padding: 90px 0px; color: green;">
+                <h5>
+                    Your form is submitted successfully!
+                </h5><br>
+                <span style="opacity: 0.7;">We will reach you as soon as.</span>
+            </div>
+        </div>
+
+        <!-- about us -->
+        <div id="aboutus">
+            <h2 style="text-align: center;">About Us</h2>
+            <div id="our-mission">
+                <h4>Our Mission</h4>
+                <p>Consectetur adipiscing elit, sued do eiusmod tempor ididunt udfgt labore et dolore magna aliqua. Quis
+                    ipsum suspendisces gravida. Risus commodo viverra sebfd dho eiusmod tempor maecenas accumsan lacus.
+                    Risus commodo viverra sebfd dho eiusmod tempor maecenas accumsan lacus.</p>
+                <p>Risus commodo viverra sebfd dho eiusmod tempor maecenas accumsan lacus. Risus commodo viverra sebfd
+                    dho eiusmod tempor maecenas accumsan.</p>
+            </div>
+            <div id="our-vision">
+                <h4>Our Vision</h4>
+                <p>Consectetur adipiscing elit, sued do eiusmod tempor ididunt udfgt labore et dolore magna aliqua. Quis
+                    ipsum suspendisces gravida. Risus commodo viverra sebfd dho eiusmod tempor maecenas accumsan lacus.
+                    Risus commodo viverra sebfd dho eiusmod tempor maecenas accumsan lacus.</p>
+                <p>Risus commodo viverra sebfd dho eiusmod tempor maecenas accumsan lacus. Risus commodo viverra sebfd
+                    dho eiusmod tempor maecenas accumsan.</p>
+            </div>
+        </div>
+
+        <!-- contatc us  -->
+        <div id="contact-us">
+            <h4 style="text-align: center;">Contact Us</h4>
+            <!-- address map -->
+            <div id="addMap">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3703.7895804124487!2d75.61175881744384!3d21.827059500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd885da0e62a71f%3A0x4ca6959b64423075!2sRadha%20Vallabh%20Market%20Office!5e0!3m2!1sen!2sin!4v1620900231749!5m2!1sen!2sin"
+                    width="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div id="contact-form-div">
+                <!-- query/ suggestion form -->
+                <div id="contact-div-heading">
+                    <h5 style="text-align: left;">Get in Touch</h5>
+                </div>
+                <div id="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <textarea name="cntsuggestion" id="cntsuggestion" cols="30" rows="6" class="form-control"
+                                placeholder="Enter Message"
+                                style="margin-top: 0px; margin-bottom: 0px; height: 143px;"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="cntname" placeholder="Password">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="email" class="form-control" id="cntemail" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="cntsubj" placeholder="Enter Subject">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btnAnimate">SEND</button>
+                    </form>
+                </div>
+
+                <!-- contact details -->
+                <div id="contact-details">
+                    <div id="office-add" class="contact-details-content">
+                        <div class="cntIcon"><i class="far fa-building"></i></div>
+                        <div class="cntDetail"><strong style="opacity: 1;">23/4, Betul Bazaar, Betul,
+                                M.P.(452001)</strong><br><small style="opacity: 0.8;">Ved Prakash Foundation,AB
+                                Road</small></div>
+                    </div>
+                    <div id="phone-add" class="contact-details-content">
+                        <div class="cntIcon"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="cntDetail"><strong style="opacity: 1;">+91 9009921881</strong><br><small
+                                style="opacity: 0.8;">24/7 support</small></div>
+                    </div>
+                    <div id="email-add" class="contact-details-content">
+                        <div class="cntIcon"><i class="fas fa-envelope-square"></i></div>
+                        <div class="cntDetail"><strong
+                                style="opacity: 1;">vedprakashfoundation@vp.com</strong><br><small
+                                style="opacity: 0.8;">Send your query/suggestion anytime!</small></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div id="footer">
+            <div id="footer-content">
+                <div id="footer-content-1">
+                    <h4 style="color: white;font-weight: bolder;font-size: 1.3rem">Organization</h4><br>
+                    <span>23/9, Murari Complex, AB Road, Indore (452001)</span><br>
+                    <span><i class="fas fa-phone-alt">&nbsp;&nbsp;</i>+91 8989898989</span><br>
+                    <span><i class="fas fa-envelope">&nbsp;&nbsp;</i>support@vpfoundation.com</span>
+                    <div class="footer-icons">
+                        <div><i class="fab fa-facebook-f "></i></div>
+                        <div><i class="fab fa-instagram"></i></div>
+                        <div><i class="fab fa-pinterest"></i></div>
+                    </div>
+                </div>
+
+                <div id="footer-content-2">
+                    <h4 style="color: white;font-weight: bolder;font-size: 1.3rem;">Quick Links</h4><br>
+                    <div><a href="#aboutus">About</a></div>
+                    <div><a href="#" title="We are working on it">Support</a></div>
+                    <div><a href="#" title="We are workin on it">Team</a></div>
+                    <div><a href="#contact-us">Contact</a></div>
+                </div>
+
+                <div id="footer-content-3">
+                    <h4 style="color: white;font-weight: bolder;font-size: 1.3rem;">Subscribe</h4><br>
+                    <form action="#" class="sub-form">
+                        <input type="text" class="form-control mb-4 subscribe-input" placeholder="Subscribe Now ...">
+                        <a href="#" class="btn btn-main btn-small rounded subscribe btnAnimate"
+                            style="border: none;border-radius: 0px!important;">subscribe</a>
+                    </form>
+                </div>
+
+                <div id="footer-content-4">
+                    <h4 style="color: white;font-weight: bolder;font-size: 1.3rem;">Gallery</h4><br>
+                    <div id="footer-gallery">
+                        <div class="footer-gallery-img">
+                            <img src="{% static 'images/image_gallery/ig1.jpg' %}" />
+                        </div>
+                        <div class="footer-gallery-img">
+                            <img src="{% static 'images/image_gallery/ig2.jpg' %}" />
+                        </div>
+                        <div class="footer-gallery-img">
+                            <img src="{% static 'images/image_gallery/ig3.jpg' %}" />
+                        </div>
+                        <div class="footer-gallery-img">
+                            <img src="{% static 'images/image_gallery/ig4.jpg' %}" />
+                        </div>
+                        <div class="footer-gallery-img">
+                            <img src="{% static 'images/image_gallery/ig5.jpg' %}" />
+                        </div>
+                        <div class="footer-gallery-img">
+                            <img src="{% static 'images/image_gallery/ig6.jpg' %}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <span>&#169;&nbsp;Copyright Reserved to Ved Prakash Foundation, 2021</span>
+            </div>
+        </div>
+
+        <div id="goToTop">
+            <i class="fas fa-level-up-alt btnAnimate" onclick="takeMeTop()"></i>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'js/home.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
+</body>
+
+<!-- custom js -->
+<script>
+
+    $('#resp_thank').hide();
+
+    // toogle visibility of level up icon
+    var levelUp = document.getElementById("goToTop");
+
+    // when size of window is less than 992 remove btnAnimate class on load
+    window.addEventListener('load', () => {
+        if (window.outerWidth < 992) {
+            $('#nav-link-home').removeClass('btnAnimate')
+            $('#nav-link-aboutus').removeClass('btnAnimate')
+            $('#nav-link-contactus').removeClass('btnAnimate')
+            $('#nav-link-support').removeClass('btnAnimate')
+        }
+
+        // when size of window is less than 992 remove btnAnimate class on resize window toggle class
+
+        window.addEventListener('resize', (e) => {
+            $('#nav-link-home').removeClass('btnAnimate')
+
+            if (e.target.outerWidth < 992) {
+                $('#nav-link-home').removeClass('btnAnimate')
+                $('#nav-link-aboutus').removeClass('btnAnimate')
+                $('#nav-link-contactus').removeClass('btnAnimate')
+                $('#nav-link-support').removeClass('btnAnimate')
+            } else {
+                $('#nav-link-home').addClass('btnAnimate')
+                $('#nav-link-aboutus').addClass('btnAnimate')
+                $('#nav-link-contactus').addClass('btnAnimate')
+                $('#nav-link-support').addClass('btnAnimate')
+            }
+
+        })
+    })
+
+
+    // get height of screen
+    window.onscroll = () => {
+
+        if (window.pageYOffset > 554) {
+            levelUp.classList.add('displayMe')
+            levelUp.classList.remove('DoNotdisplayMe')
+        } else {
+            levelUp.classList.add('DoNotdisplayMe')
+            levelUp.classList.remove('displayMe')
+        }
+    }
+
+    // teke to top after click on level up icon
+
+    function takeMeTop() {
+        window.scrollTo(0, 0);
+    }
+
+    //  help form
+    $('#help-form').submit(function(e){
+        e.preventDefault();
+
+        formData = {
+            'name' : $('input[name=name]').val(),
+            'email' : $('input[name=email]').val(),
+            'phone' : $('input[name=phone]').val(),
+            'wpphone' : $('input[name=wpphone]').val(),
+            'currentAdd' : $('input[name=currentAdd]').val(),
+            'permanentAdd' : $('input[name=permanentAdd]').val(),
+            'city' : $('input[name=city]').val(),
+            'message':$('textarea[name=message]').val(),
+            'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+        }
+
+ 
+           
+        $.ajax({
+            type:'POST',
+            url : '{% url "needhelp" %}?type={{help_type}}',
+            dataType: "json",
+            data:formData,
+            encode:true,
+            
+            success:function(data){
+                console.log("success")
+            },
+            complete:function(){ 
+                $('#help-form').hide();
+                $('#resp_thank').show();
+                window.location.hash = 'resp_thank'
+            }
+        });
+    })
+
+    function phoneValidator(id) {
+        num = document.getElementById(id).value;
+        phoneRegex = /^([6-9]{1})([0-9]{9})$/
+        if (num.match(phoneRegex) != null) {
+            removeErrorClass(id);
+        }
+        else {
+            addErrorClasse(id); 
+        }
+    }
+
+    // function which adds /remove dynamic classes based on phone number validation
+    $('#phoneValidateErrorText').hide();
+    $('#wpPhoneValidateErrorText').hide();
+
+    function addErrorClasse(id) {
+        $('#' + id).addClass('showError');
+        if (id === 'phone') {
+            $('#phoneValidateErrorText').show();
+        }
+        if (id === 'wpphone') {
+            $('#wpPhoneValidateErrorText').show();
+        }
+    }
+
+    function removeErrorClass(id) {
+        $('#' + id).removeClass('showError');
+        if (id === 'phone') {
+            $('#phoneValidateErrorText').hide();
+        }
+        if (id === 'wpphone') {
+            $('#wpPhoneValidateErrorText').hide();
+        }
+    }
+
+
+</script>
+
+</html>
